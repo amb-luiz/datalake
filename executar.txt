@@ -1,0 +1,89 @@
+
+pl_ambipar_carga_SBO_Response - ds_sbo_emergencia - SBO_EMERGENCIA
+"sqlReaderQuery": "SELECT 1 AS id_ctrl, \n('SELECT * FROM dbo.ORTT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/ORTT' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n \n SELECT 3 AS id_ctrl, \n('SELECT *, 3 as empresaID FROM dbo.OFRC WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OFRC_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder    UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 3 as empresaID FROM dbo.OFRT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OFRT_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder    UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 3 as empresaID FROM dbo.OPRC WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OPRC_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder    UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 3 as empresaID FROM dbo.FRC1 WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/FRC1_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 3 as empresaID FROM dbo.OACT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OACT_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n SELECT 3 AS id_ctrl, \n('SELECT Line_ID, Account, ContraAct, Credit, Debit, LineMemo, RefDate, ProfitCode, TransId , Project, DebCred , TransType, BaseRef, 1 as BPLId, 3 as empresaID FROM dbo.JDT1 WITH(NOLOCK)  WHERE year(refDate) >= year(getdate())-5'  ) AS te_query_origem, 'datalake/raw/SBO/JDT1_RESPONSE' +'/'+ CONVERT(VARCHAR(3), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n--OJDT NAO SENDO UTILIZADA\n --SELECT 3 AS id_ctrl, \n--('SELECT *, 3 as empresaID FROM dbo.OJDT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OJDT_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n\n SELECT 3 AS id_ctrl, \n('SELECT DocEntry, DocDate, U_nchamado, Comments, CardCode, CardName, 3 as empresaID FROM dbo.OPCH WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/OPCH_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT TrgetEntry, AcctCode, DocEntry, Dscription, TargetType, 3 as empresaID FROM dbo.POR1 WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/POR1_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 3 as empresaID FROM dbo.OPOR WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/OPOR_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT DocEntry, DocDate, U_nchamado, Comments, CardCode, CardName, Serial, 3 as empresaID FROM dbo.OINV WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/OINV_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 3 as empresaID FROM dbo.RDR1 WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/RDR1_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT BPLId, COALESCE(AliasName,(select COALESCE(AliasName,CompnyName) from dbo.OADM)) AliasName, 3 as empresaID FROM dbo.OBPL WITH(NOLOCK) where Disabled = ''N''' ) AS te_query_origem, 'datalake/raw/SBO/OBPL_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 93 AS id_ctrl,\n('SELECT *, 3 as empresaID FROM dbo.ORDR WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/ORDR_RESPONSE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  ",
+
+
+pl_ambipar_carga_SBO_Response - ds_sbo_emergencia - SBO_EMERGENCIA  - salva em: 
+ORTT_RESPONSE
+OFRC_RESPONSE
+OFRT_RESPONSE
+OPRC_RESPONSE
+FRC1_RESPONSE
+OACT_RESPONSE
+JDT1_RESPONSE
+OPCH_RESPONSE
+POR1_RESPONSE
+OPOR_RESPONSE
+OINV_RESPONSE
+RDR1_RESPONSE
+OBPL_RESPONSE
+ORDR_RESPONSE
+
+
+
+pl_ambipar_carga_SBO_Emergencia - ds_sbo_emergencia - SBO_3GA
+"sqlReaderQuery": " SELECT 90 AS id_ctrl, \n('SELECT *, 90 as empresaID FROM dbo.OFRC WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OFRC_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder    UNION\n SELECT 90 AS id_ctrl, \n('SELECT *, 90 as empresaID FROM dbo.OPRC WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OPRC_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder    UNION\n SELECT 90 AS id_ctrl, \n('SELECT *, 90 as empresaID FROM dbo.OFRT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OFRT_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder    UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 90 as empresaID FROM dbo.FRC1 WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/FRC1_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 90 as empresaID FROM dbo.OACT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OACT_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n SELECT 3 AS id_ctrl, \n('SELECT Line_ID, Account, ContraAct, Credit, Debit, LineMemo, RefDate, ProfitCode, TransId , Project, DebCred , TransType, BaseRef, 1 as BPLId, 90 as empresaID FROM dbo.JDT1 WITH(NOLOCK)  WHERE year(refDate) >= year(getdate())-5'  ) AS te_query_origem, 'datalake/raw/SBO/JDT1_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n--OJDT NAO SENDO UTILIZADA\n --SELECT 3 AS id_ctrl, \n--('SELECT *, 90 as empresaID FROM dbo.OJDT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OJDT_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n\n SELECT 3 AS id_ctrl, \n('SELECT  DocEntry, DocDate, U_nchamado, Comments, CardCode, CardName, Serial, 90 as empresaID FROM dbo.OPCH WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/OPCH_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT TrgetEntry, AcctCode, DocEntry, Dscription, TargetType, 90 as empresaID FROM dbo.POR1 WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/POR1_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 90 as empresaID FROM dbo.OPOR WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/OPOR_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT DocEntry, DocDate, U_nchamado, Comments, CardCode, CardName, Serial, 90 as empresaID FROM dbo.OINV WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/OINV_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 90 as empresaID FROM dbo.RDR1 WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/RDR1_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT BPLId, COALESCE(AliasName,(select COALESCE(AliasName,CompnyName) from dbo.OADM)) AliasName, 90 as empresaID FROM dbo.OBPL WITH(NOLOCK) where Disabled = ''N''' ) AS te_query_origem, 'datalake/raw/SBO/OBPL_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 93 AS id_ctrl,\n('SELECT *, 90 as empresaID FROM dbo.ORDR WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/ORDR_EMERGENCIA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder",
+            
+
+pl_ambipar_carga_SBO_Emergencia - ds_sbo_emergencia - SBO_3GA salva em: 
+OFRC_EMERGENCIA
+OPRC_EMERGENCIA
+OFRT_EMERGENCIA
+FRC1_EMERGENCIA
+OACT_EMERGENCIA
+JDT1_EMERGENCIA
+OPCH_EMERGENCIA
+POR1_EMERGENCIA
+OPOR_EMERGENCIA
+OINV_EMERGENCIA
+RDR1_EMERGENCIA
+OBPL_EMERGENCIA
+ORDR_EMERGENCIA
+
+
+
+
+
+pl_ambipar_carga_SBO_Insurance - SBO_INSURANCE
+  "sqlReaderQuery": " SELECT 24 AS id_ctrl, \n('SELECT *, 24 as empresaID FROM dbo.OFRC WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OFRC_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder    UNION\n SELECT 24 AS id_ctrl, \n('SELECT *, 24 as empresaID FROM dbo.OPRC WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OPRC_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder    UNION\n SELECT 24 AS id_ctrl, \n('SELECT *, 24 as empresaID FROM dbo.OFRT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OFRT_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder    UNION\n SELECT 24 AS id_ctrl, \n('SELECT *, 24 as empresaID FROM dbo.FRC1 WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/FRC1_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n SELECT 24 AS id_ctrl, \n('SELECT *, 24 as empresaID FROM dbo.OACT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OACT_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n SELECT 24 AS id_ctrl, \n('SELECT Line_ID, Account, ContraAct, Credit, Debit, LineMemo, RefDate, ProfitCode, TransId , Project, DebCred , TransType, BaseRef, BPLId, 24 as empresaID FROM dbo.JDT1 WITH(NOLOCK)  WHERE year(refDate) >= year(getdate())-5'  ) AS te_query_origem, 'datalake/raw/SBO/JDT1_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n--OJDT NAO SENDO UTILIZADA\n --SELECT 24 AS id_ctrl, \n--('SELECT *, 24 as empresaID FROM dbo.OJDT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OJDT_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n\n SELECT 24 AS id_ctrl, \n('SELECT  DocEntry, DocDate, U_nchamado, Comments, CardCode, CardName, Serial, 24 as empresaID FROM dbo.OPCH WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/OPCH_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 24 AS id_ctrl, \n('SELECT TrgetEntry, AcctCode, DocEntry, Dscription, TargetType, 24 as empresaID FROM dbo.POR1 WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/POR1_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 24 AS id_ctrl, \n('SELECT *, 24 as empresaID FROM dbo.OPOR WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/OPOR_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 24 AS id_ctrl, \n('SELECT DocEntry, DocDate, U_nchamado, Comments, CardCode, CardName, Serial, 24 as empresaID FROM dbo.OINV WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/OINV_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 24 AS id_ctrl, \n('SELECT *, 24 as empresaID FROM dbo.RDR1 WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/RDR1_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 24 AS id_ctrl, \n('SELECT BPLId, COALESCE(AliasName,(select COALESCE(AliasName,CompnyName) from dbo.OADM)) AliasName, 24 as empresaID FROM dbo.OBPL WITH(NOLOCK) where Disabled = ''N''' ) AS te_query_origem, 'datalake/raw/SBO/OBPL_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 93 AS id_ctrl,\n('SELECT *, 24 as empresaID FROM dbo.ORDR WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/ORDR_INSURANCE' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder",
+           
+
+pl_ambipar_carga_SBO_Insurance - SBO_INSURANCE - salva em: 
+
+OFRC_INSURANCE
+OPRC_INSURANCE
+OFRT_INSURANCE
+FRC1_INSURANCE
+OACT_INSURANCE
+JDT1_INSURANCE
+OPCH_INSURANCE
+POR1_INSURANCE
+OPOR_INSURANCE
+OINV_INSURANCE
+RDR1_INSURANCE
+OBPL_INSURANCE
+ORDR_INSURANCE
+
+
+
+pl_ambipar_carga_SBO_MULTIFILIAL_3GA - SBO_MULTIFILIAL_3GA
+  "sqlReaderQuery": " SELECT 91 AS id_ctrl, \n('SELECT *, 91 as empresaID FROM dbo.OFRC WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OFRC_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder    UNION\n SELECT 91 AS id_ctrl, \n('SELECT *, 91 as empresaID FROM dbo.OPRC WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OPRC_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder    UNION\n SELECT 91 AS id_ctrl, \n('SELECT *, 91 as empresaID FROM dbo.OFRT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OFRT_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder    UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 91 as empresaID FROM dbo.FRC1 WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/FRC1_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 91 as empresaID FROM dbo.OACT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OACT_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n SELECT 3 AS id_ctrl, \n('SELECT Line_ID, Account, ContraAct, Credit, Debit, LineMemo, RefDate, ProfitCode, TransId , Project, DebCred , TransType, BaseRef, 1 as BPLId, 91 as empresaID FROM dbo.JDT1 WITH(NOLOCK)  WHERE year(refDate) >= year(getdate())-5'  ) AS te_query_origem, 'datalake/raw/SBO/JDT1_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder  UNION\n--OJDT NAO SENDO UTILIZADA\n --SELECT 3 AS id_ctrl, \n--('SELECT *, 91 as empresaID FROM dbo.OJDT WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/OJDT_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n\n SELECT 3 AS id_ctrl, \n('SELECT  DocEntry, DocDate, U_nchamado, Comments, CardCode, CardName, Serial, 91 as empresaID FROM dbo.OPCH WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/OPCH_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT TrgetEntry, AcctCode, DocEntry, Dscription, TargetType, 91 as empresaID FROM dbo.POR1 WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/POR1_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 91 as empresaID FROM dbo.OPOR WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/OPOR_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT DocEntry, DocDate, U_nchamado, Comments, CardCode, CardName, Serial, 91 as empresaID FROM dbo.OINV WITH(NOLOCK) WHERE year(DocDate) >= year(getdate())-5' ) AS te_query_origem, 'datalake/raw/SBO/OINV_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT *, 91 as empresaID FROM dbo.RDR1 WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/RDR1_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 3 AS id_ctrl, \n('SELECT BPLId, COALESCE(AliasName,(select COALESCE(AliasName,CompnyName) from dbo.OADM)) AliasName, 91 as empresaID FROM dbo.OBPL WITH(NOLOCK) where Disabled = ''N''' ) AS te_query_origem, 'datalake/raw/SBO/OBPL_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder UNION\n SELECT 93 AS id_ctrl,\n('SELECT *, 91 as empresaID FROM dbo.ORDR WITH(NOLOCK)' ) AS te_query_origem, 'datalake/raw/SBO/ORDR_EMERGENCIA_SA' +'/'+ CONVERT(VARCHAR(8), CONVERT(CHAR, GETDATE(), 112)) AS nm_folder",
+           
+
+
+
+pl_ambipar_carga_SBO_MULTIFILIAL_3GA - SBO_MULTIFILIAL_3GA - salva em: 
+
+OFRC_EMERGENCIA_SA
+OPRC_EMERGENCIA_SA
+OFRT_EMERGENCIA_SA
+FRC1_EMERGENCIA_SA
+OACT_EMERGENCIA_SA
+JDT1_EMERGENCIA_SA
+OPCH_EMERGENCIA_SA
+POR1_EMERGENCIA_SA
+OPOR_EMERGENCIA_SA
+OINV_EMERGENCIA_SA
+RDR1_EMERGENCIA_SA
+OBPL_EMERGENCIA_SA
+ORDR_EMERGENCIA_SA

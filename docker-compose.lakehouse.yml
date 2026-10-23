@@ -1,0 +1,53 @@
+version: "3.9"
+
+services:
+  metastore-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: metastore
+      POSTGRES_USER: hive
+      POSTGRES_PASSWORD: hive
+    ports:
+      - "5433:5432"
+    volumes:
+      - metastore-db:/var/lib/postgresql/data
+
+  hive-metastore:
+    build:
+      context: ./platform/hive
+      dockerfile: Dockerfile
+    depends_on:
+      - metastore-db
+    environment:
+      SERVICE_NAME: metastore
+      DB_DRIVER: postgres
+      SERVICE_OPTS: >-
+        -Djavax.jdo.option.ConnectionDriverName=org.postgresql.Driver
+        -Djavax.jdo.option.ConnectionURL=jdbc:postgresql://metastore-db:5432/metastore
+        -Djavax.jdo.option.ConnectionUserName=hive
+        -Djavax.jdo.option.ConnectionPassword=hive
+    ports:
+      - "9083:9083"
+    volumes:
+      - ./platform/hive/conf/core-site.xml:/opt/hive/conf/core-site.xml:ro
+      - ./platform/hive/conf/metastore-site.xml:/opt/hive/conf/metastore-site.xml:ro
+
+  trino:
+    image: trinodb/trino:470
+    depends_on:
+      - hive-metastore
+    ports:
+      - "8081:8080"
+      - "8443:8443"
+    volumes:
+      - ./platform/trino/etc/config.properties:/etc/trino/config.properties:ro
+      - ./platform/trino/etc/password-authenticator.properties:/etc/trino/password-authenticator.properties:ro
+      - ./platform/trino/etc/password.db:/etc/trino/password.db:ro
+      - ./platform/trino/etc/trino-keystore.p12:/etc/trino/trino-keystore.p12:ro
+      - ./platform/trino/etc/jvm.config:/etc/trino/jvm.config:ro
+      - ./platform/trino/etc/node.properties:/etc/trino/node.properties:ro
+      - ./platform/trino/etc/catalog/hive.properties:/etc/trino/catalog/hive.properties:ro
+      - ./platform/trino/etc/catalog/iceberg.properties:/etc/trino/catalog/iceberg.properties:ro
+
+volumes:
+  metastore-db:

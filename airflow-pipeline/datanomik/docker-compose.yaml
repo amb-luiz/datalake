@@ -1,0 +1,128 @@
+name: ambipar-datanomik-fluxo-caixa
+
+x-airflow: &airflow
+  build:
+    context: .
+    target: runtime
+  image: ambipar-datanomik-airflow:3.3.1
+  user: "${AIRFLOW_UID:-50000}:0"
+  environment: &environment
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:${DATANOMIK_POSTGRES_PASSWORD:?Run scripts/bootstrap.py}@postgres/airflow
+    AIRFLOW__CORE__FERNET_KEY: ${DATANOMIK_FERNET_KEY:?Run scripts/bootstrap.py}
+    AIRFLOW__API_AUTH__JWT_SECRET: ${DATANOMIK_JWT_SECRET:?Run scripts/bootstrap.py}
+    AIRFLOW__API__SECRET_KEY: ${DATANOMIK_API_SECRET:?Run scripts/bootstrap.py}
+    AIRFLOW__CORE__EXECUTION_API_SERVER_URL: http://airflow-api-server:8080/execution/
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+    AIRFLOW__CORE__DEFAULT_TIMEZONE: America/Sao_Paulo
+    AIRFLOW__CORE__MAX_MAP_LENGTH: ${DATANOMIK_MAX_ACCOUNTS:-1024}
+    AIRFLOW__CORE__PARALLELISM: ${DATANOMIK_ACCOUNT_CONCURRENCY:-3}
+    AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: "true"
+    PYTHONPATH: /opt/airflow/datanomik/src
+    DATANOMIK_CREDENTIALS_FILE: ${DATANOMIK_CREDENTIALS_FILE:-/opt/airflow/secrets/datanomik_airflow.json}
+    DATANOMIK_DATA_ROOT: /opt/airflow/data/datanomik
+    DATANOMIK_ACCOUNT_CONCURRENCY: ${DATANOMIK_ACCOUNT_CONCURRENCY:-3}
+    DATANOMIK_MAX_ACCOUNTS: ${DATANOMIK_MAX_ACCOUNTS:-1024}
+    DATANOMIK_MAX_PAGES: ${DATANOMIK_MAX_PAGES:-10000}
+  volumes: &volumes
+    - ./dags:/opt/airflow/dags:ro
+    - ./src:/opt/airflow/datanomik/src:ro
+    - datanomik-data:/opt/airflow/data
+    - datanomik-logs:/opt/airflow/logs
+    # Bind the existing file only; never put it in the Docker build context.
+    - type: bind
+      source: ${DATANOMIK_CREDENTIALS_HOST_FILE:-/opt/apps/datalake/secrets/credenciais_datanomik.json}
+      target: /opt/airflow/secrets/datanomik_airflow.json
+      read_only: true
+      bind:
+        create_host_path: false
+  depends_on:
+    postgres:
+      condition: service_healthy
+  restart: unless-stopped
+
+services:
+  postgres:
+    image: postgres:16.13-bookworm
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_DB: airflow
+      POSTGRES_PASSWORD: ${DATANOMIK_POSTGRES_PASSWORD:?Run scripts/bootstrap.py}
+    volumes:
+      - datanomik-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U airflow -d airflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  airflow-init:
+    <<: *airflow
+    user: "0:0"
+    entrypoint: /bin/bash
+    command:
+      - -ec
+      - |
+        mkdir -p /opt/airflow/data /opt/airflow/logs
+        chown -R "${AIRFLOW_UID:-50000}:0" /opt/airflow/data /opt/airflow/logs
+        exec gosu "${AIRFLOW_UID:-50000}:0" /entrypoint airflow db migrate
+    restart: "no"
+
+  airflow-api-server:
+    <<: *airflow
+    command: api-server
+    ports:
+      - "127.0.0.1:${DATANOMIK_UI_PORT:-8089}:8080"
+    healthcheck:
+      test: [CMD, curl, --fail, http://localhost:8080/api/v2/monitor/health]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  airflow-scheduler:
+    <<: *airflow
+    command: scheduler
+    healthcheck:
+      test: [CMD, curl, --fail, http://localhost:8974/health]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  airflow-dag-processor:
+    <<: *airflow
+    command: dag-processor
+    healthcheck:
+      test: [CMD-SHELL, 'airflow jobs check --job-type DagProcessorJob --hostname "$${HOSTNAME}"']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # No inherited environment, credential mount, DB or network in automated tests.
+  tests:
+    profiles: [test]
+    build:
+      context: .
+      target: test
+    image: ambipar-datanomik-tests:3.3.1
+    user: "${AIRFLOW_UID:-50000}:0"
+    network_mode: none
+    entrypoint: /bin/bash
+    command: ["/workspace/scripts/validate.sh"]
+    working_dir: /workspace
+    environment:
+      PYTHONPATH: /workspace/src
+      AIRFLOW_HOME: /tmp/datanomik-test-airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      DATANOMIK_CREDENTIALS_FILE: /nonexistent/test-only-credentials.json
+      DATANOMIK_REQUIRE_FULL_TESTS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    volumes:
+      - .:/workspace:ro
+
+volumes:
+  datanomik-data:
+  datanomik-logs:
+  datanomik-postgres:

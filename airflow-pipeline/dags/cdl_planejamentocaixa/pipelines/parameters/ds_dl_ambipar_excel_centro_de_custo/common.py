@@ -1,0 +1,6 @@
+DAG_NAME = "ds_dl_ambipar_excel_centro_de_custo"
+SMB_CONN_ID = "ambipar_excel_centro_de_custo_smb"
+SOURCE_DIRECTORY = r"QlikviewSAP\Arquivos_DRE"
+FILE_PATTERN = "Centro de Custo -*.xlsx"
+TARGET_CONTAINER = "ambipar"
+TARGET_DIRECTORY = "datalake/delta/raw/sourcedata/centro_de_custo"

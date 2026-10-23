@@ -1,0 +1,14 @@
+planejamento_caixa:
+  target: dev
+  outputs:
+    dev:
+      type: trino
+      method: "{{ env_var('DBT_TRINO_METHOD', 'none') }}"
+      user: "{{ env_var('DBT_TRINO_USER', 'trino') }}"
+      password: "{{ env_var('DBT_TRINO_PASSWORD', '') }}"
+      host: "{{ env_var('DBT_TRINO_HOST', 'localhost') }}"
+      port: "{{ env_var('DBT_TRINO_PORT', '8081') | int }}"
+      catalog: "{{ env_var('DBT_TRINO_CATALOG', 'iceberg') }}"
+      schema: "{{ env_var('DBT_TRINO_SCHEMA', 'planejamento_caixa') }}"
+      threads: "{{ env_var('DBT_THREADS', '4') | int }}"
+      http_scheme: "{{ env_var('DBT_TRINO_HTTP_SCHEME', 'http') }}"

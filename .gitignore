@@ -1,0 +1,137 @@
+# =========================
+# Arquivos de ambiente
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Segredos / certificados
+# =========================
+secrets/
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# Configurações geradas
+# =========================
+**/config.json
+
+# =========================
+# Notebooks locais/sensíveis
+# =========================
+notebooks/test postgres.ipynb
+
+# =========================
+# Dumps / backups / exports
+# =========================
+*.bak
+*.dump
+*.sql
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# Sistema operacional
+# =========================
+.DS_Store
+Thumbs.db
+
+# DBT local/gerado
+dbt/.user.yml
+dbt/target/
+
+# Trino - credenciais/certificados locais
+platform/trino/etc/password.db
+platform/trino/etc/trino.crt
+
+# Notebooks sensíveis
+pyspark-library/notebooks/test postgres.ipynb
+
+# Ambiente
+.env
+.env.*
+!.env.example
+
+# Segredos e certificados privados
+secrets/
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+
+# Logs
+logs/
+*.log
+
+# Configs geradas
+**/config.json
+
+# DBT
+dbt/.user.yml
+dbt/target/
+
+# Trino
+platform/trino/etc/password.db
+platform/trino/etc/trino.crt
+
+# Notebook sensível
+pyspark-library/notebooks/test postgres.ipynb
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# VS Code
+.vscode/
+
+
+.deploy/
+.env
+.env.*
+!.env.example
+.venv/
+.venv-dbt/
+.venv-trino-dbt/
+.vscode/
+
+# Datanomik cash flow integration
+secrets/*.json
+airflow-pipeline/datanomik/.runtime/
+airflow-pipeline/datanomik/data/
+airflow-pipeline/datanomik/logs/
+airflow-pipeline/datanomik/.tmp-*
+airflow-pipeline/datanomik/test-results/
+
+# Backups locais
+*.bak-*
+*~
+
+# Configuracoes locais com credenciais
+dbt/profiles.yml
+platform/trino/etc/config.properties
+pyspark-library/notebooks/pyspark_jdbc.ipynb

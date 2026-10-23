@@ -1,0 +1,14 @@
+.env
+.env.*
+.runtime/
+secrets/*.json
+data/
+logs/
+*.tmp
+.tmp-*
+*.sqlite*
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+test-results/

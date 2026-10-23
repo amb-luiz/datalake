@@ -1,0 +1,12 @@
+.git
+.env
+logs
+plugins
+dags/dag_sync_variables.py
+dags/variables.json
+airflow/credentials
+pyspark-library_old/*
+airflow-pipeline_old/*
+data/*
+*.pyc
+__pycache__/*

@@ -1,0 +1,11 @@
+coordinator=true
+node-scheduler.include-coordinator=true
+http-server.http.port=8080
+http-server.https.enabled=true
+http-server.https.port=8443
+http-server.https.keystore.path=/etc/trino/trino-keystore.p12
+http-server.https.keystore.key=W97ML12TrinoStore
+http-server.authentication.type=PASSWORD
+http-server.authentication.allow-insecure-over-http=true
+internal-communication.shared-secret=REPLACE_WITH_A_RANDOM_SECRET_BEFORE_STARTING_TRINO
+discovery.uri=http://localhost:8080

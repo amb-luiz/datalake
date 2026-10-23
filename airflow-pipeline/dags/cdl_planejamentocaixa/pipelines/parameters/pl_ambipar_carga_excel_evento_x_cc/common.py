@@ -1,0 +1,9 @@
+DAG_NAME = "pl_ambipar_carga_excel_evento_X_cc"
+SMB_CONN_ID = "ambipar_excel_centro_de_custo_smb"
+SOURCE_DIRECTORY = r"Qlikview\Fontes de Dados"
+SOURCE_FILE_NAME = "EventoXContaContabil.xlsx"
+SHEET_NAME = "EVENTO_CONTA"
+DATA_COLUMNS = ["CONTA_CONTABIL", "NOME_EVENTO", "EVENTO_ID"]
+TARGET_CONTAINER = "ambipar"
+TARGET_DIRECTORY = "datalake/delta/raw/sourcedata/ods_evento_x_conta_contabil"
+PARQUET_FILE_NAME = "evento_x_conta_contabil.parquet"

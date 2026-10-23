@@ -1,0 +1,1214 @@
+{
+  "pl_ambipar_carga_excel_grupo_controladoria_X_cc": [
+    {
+      "task_id": "cd_grupo_controladoria_conta_contabil",
+      "source_folder": "Qlikview/Fontes de Dados",
+      "source_file": "GrupoControladoriaXContaContabil.xlsx",
+      "recursive": false,
+      "sheet": "GRUPO",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "Conta Contábil",
+          "Conta_Contabil"
+        ],
+        [
+          "Codigo",
+          "Codigo"
+        ],
+        [
+          "Descricao",
+          "Descricao"
+        ],
+        [
+          "Homologacao",
+          "Homologacao"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "ods_grupo_controladoria_x_conta_contabil",
+      "skip_if_empty": false
+    }
+  ],
+  "pl_ambipar_carga_excel_plan_orc_versoes_copy1": [
+    {
+      "task_id": "cd_planejamento_orcamentario_versoes",
+      "source_folder": "Qlikview/Fontes de Dados/PLANEJAMENTO_VERSOES",
+      "source_file": "PO_*_20*.xlsx",
+      "recursive": true,
+      "sheet": 0,
+      "range": "A1:P1048576",
+      "header": true,
+      "mappings": [
+        [
+          "EMPRESA",
+          "EMPRESA"
+        ],
+        [
+          "FILIAL",
+          "FILIAL"
+        ],
+        [
+          "ANO",
+          "ANO"
+        ],
+        [
+          "MES",
+          "MES"
+        ],
+        [
+          "VERSAO",
+          "VERSAO"
+        ],
+        [
+          "CTA DEBITO",
+          "CTA_DEBITO"
+        ],
+        [
+          "CTA CREDITO",
+          "CTA_CREDITO"
+        ],
+        [
+          "DESCRICAO",
+          "DESCRICAO"
+        ],
+        [
+          "VALOR",
+          "VALOR"
+        ],
+        [
+          "CC DEBITO",
+          "CC_DEBITO"
+        ],
+        [
+          "CC CREDITO",
+          "CC_CREDITO"
+        ],
+        [
+          "IC DEBITO",
+          "IC_DEBITO"
+        ],
+        [
+          "IC CREDITO",
+          "IC_CREDITO"
+        ],
+        [
+          "CV DEBITO",
+          "CV_DEBITO"
+        ],
+        [
+          "CV CREDITO",
+          "CV_CREDITO"
+        ],
+        [
+          "PROJEÇÃO",
+          "PROJECAO"
+        ],
+        [
+          "NOMEARQUIVO",
+          "NOMEARQUIVO"
+        ]
+      ],
+      "extra_columns": [
+        [
+          "NOMEARQUIVO",
+          "$$FILEPATH"
+        ]
+      ],
+      "target_folder": "ods_planejamento_orcamentario_versoes",
+      "skip_if_empty": true
+    }
+  ],
+  "pl_ambipar_carga_excel_plan_orcamentario_copy1": [
+    {
+      "task_id": "cd_planejamento_orcamentario_full",
+      "source_folder": "Qlikview/Fontes de Dados/PLANEJAMENTO_VERSOES/PowerBI",
+      "source_file": "PO_*_20*.xlsx",
+      "recursive": true,
+      "sheet": 0,
+      "range": "A1:P1048576",
+      "header": true,
+      "mappings": [
+        [
+          "EMPRESA",
+          "EMPRESA"
+        ],
+        [
+          "FILIAL",
+          "FILIAL"
+        ],
+        [
+          "ANO",
+          "ANO"
+        ],
+        [
+          "MES",
+          "MES"
+        ],
+        [
+          "VERSAO",
+          "VERSAO"
+        ],
+        [
+          "CTA DEBITO",
+          "CTA_DEBITO"
+        ],
+        [
+          "CTA CREDITO",
+          "CTA_CREDITO"
+        ],
+        [
+          "DESCRICAO",
+          "DESCRICAO"
+        ],
+        [
+          "VALOR",
+          "VALOR"
+        ],
+        [
+          "CC DEBITO",
+          "CC_DEBITO"
+        ],
+        [
+          "CC CREDITO",
+          "CC_CREDITO"
+        ],
+        [
+          "IC DEBITO",
+          "IC_DEBITO"
+        ],
+        [
+          "IC CREDITO",
+          "IC_CREDITO"
+        ],
+        [
+          "CV DEBITO",
+          "CV_DEBITO"
+        ],
+        [
+          "CV CREDITO",
+          "CV_CREDITO"
+        ],
+        [
+          "PROJEÇÃO",
+          "PROJECAO"
+        ],
+        [
+          "NOMEARQUIVO",
+          "NOMEARQUIVO"
+        ]
+      ],
+      "extra_columns": [
+        [
+          "NOMEARQUIVO",
+          "$$FILEPATH"
+        ]
+      ],
+      "target_folder": "ods_planejamento_orcamentario_full",
+      "skip_if_empty": true
+    }
+  ],
+  "pl_ambipar_carga_excel_po_depara_cc": [
+    {
+      "task_id": "cd_po_depara_cc",
+      "source_folder": "Qlikview/Fontes de Dados",
+      "source_file": "PO_DE_PARA_CC.xlsx",
+      "recursive": false,
+      "sheet": "PO_DE_PARA_CC",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "De Filial",
+          "De_Filial"
+        ],
+        [
+          "Centro de Custo",
+          "Centro_de_Custo"
+        ],
+        [
+          "Item Contábil",
+          "Item_Contabil"
+        ],
+        [
+          "Classe de Valor",
+          "Classe_de_Valor"
+        ],
+        [
+          "Para Filial",
+          "Para_Filial"
+        ],
+        [
+          "Para Filial Nome",
+          "Para_Filial_Nome"
+        ],
+        [
+          "Para Filial RH",
+          "Para_Filial_RH"
+        ],
+        [
+          "Para Empresa",
+          "Para_Empresa"
+        ],
+        [
+          "Gestor",
+          "Gestor"
+        ],
+        [
+          "Centro de Custo Gerencial",
+          "Centro_de_Custo_Gerencial"
+        ],
+        [
+          "PO Frotas e Beneficios",
+          "PO_Frotas_e_Beneficios"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "ods_po_depara_cc_full",
+      "skip_if_empty": false,
+      "share_access": "rw"
+    },
+    {
+      "task_id": "cd_po_depara_cc_consolidado",
+      "source_folder": "Qlikview/Fontes de Dados",
+      "source_file": "PO_DE_PARA_CC_CONSOLIDADO.xlsx",
+      "recursive": false,
+      "sheet": "PO_DE_PARA_CC_CH",
+      "range": "A1:S200000",
+      "header": true,
+      "mappings": [
+        [
+          "ChaveSectionAccess",
+          "ChaveSectionAccess"
+        ],
+        [
+          "De Filial",
+          "De_Filial"
+        ],
+        [
+          "Centro de Custo",
+          "Centro_de_Custo"
+        ],
+        [
+          "Item Contábil",
+          "Item_Contabil"
+        ],
+        [
+          "Classe de Valor",
+          "Classe_de_Valor"
+        ],
+        [
+          "Para Filial",
+          "Para_Filial"
+        ],
+        [
+          "Para Filial Nome",
+          "Para_Filial_Nome"
+        ],
+        [
+          "Para Filial RH",
+          "Para_Filial_RH"
+        ],
+        [
+          "Para Empresa",
+          "Para_Empresa"
+        ],
+        [
+          "Gestor",
+          "Gestor"
+        ],
+        [
+          "Centro de Custo Gerencial",
+          "Centro_de_Custo_Gerencial"
+        ],
+        [
+          "PO Frotas e Beneficios",
+          "PO_Frotas_e_Beneficios"
+        ],
+        [
+          "Segmento",
+          "Segmento"
+        ],
+        [
+          "Unidade de Negócios",
+          "Unidade_de_Negocios"
+        ],
+        [
+          "Para Filial PO",
+          "Para_Filial_PO"
+        ],
+        [
+          "Para Centro de Custo PO",
+          "Para_Centro_de_Custo_PO"
+        ],
+        [
+          "Para Item Contábil PO",
+          "Para_Item_Contabil_PO"
+        ],
+        [
+          "Para Classe de Valor PO",
+          "Para_Classe_de_Valor_PO"
+        ],
+        [
+          "Data de aquisição",
+          "Data_de_aquisicao"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "ods_po_depara_cc_consolidado",
+      "skip_if_empty": false,
+      "share_access": "rw"
+    },
+    {
+      "task_id": "cd_po_depara_cc_consolidado_section_access",
+      "source_folder": "Qlikview/Fontes de Dados",
+      "source_file": "PO_DE_PARA_CC_CONSOLIDADO.xlsx",
+      "recursive": false,
+      "sheet": "SECTION ACCESS ANALISTAS",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "TipoAcesso",
+          "TipoAcesso"
+        ],
+        [
+          "Dominio",
+          "Dominio"
+        ],
+        [
+          "Acesso",
+          "Acesso"
+        ],
+        [
+          "ChaveSectionAccess",
+          "ChaveSectionAccess"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "ods_po_depara_cc_consolidado_section_access",
+      "skip_if_empty": false,
+      "share_access": "rw"
+    }
+  ],
+  "pl_ambipar_carga_excel_po_depara_cc_frota_beneficios": [
+    {
+      "task_id": "cd_po_depara_cc",
+      "source_folder": "Qlikview/Fontes de Dados",
+      "source_file": "PO_DE_PARA_CC.xlsx",
+      "recursive": false,
+      "sheet": "PO_DE_PARA_CC",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "De Filial",
+          "De_Filial"
+        ],
+        [
+          "Centro de Custo",
+          "Centro_de_Custo"
+        ],
+        [
+          "Item Contábil",
+          "Item_Contabil"
+        ],
+        [
+          "Classe de Valor",
+          "Classe_de_Valor"
+        ],
+        [
+          "Para Filial",
+          "Para_Filial"
+        ],
+        [
+          "Para Filial Nome",
+          "Para_Filial_Nome"
+        ],
+        [
+          "Para Filial RH",
+          "Para_Filial_RH"
+        ],
+        [
+          "Para Empresa",
+          "Para_Empresa"
+        ],
+        [
+          "Gestor",
+          "Gestor"
+        ],
+        [
+          "Centro de Custo Gerencial",
+          "Centro_de_Custo_Gerencial"
+        ],
+        [
+          "PO Frotas e Beneficios",
+          "PO_Frotas_e_Beneficios"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "ods_po_depara_cc_frota_beneficios",
+      "skip_if_empty": false
+    },
+    {
+      "task_id": "cd_po_depara_cc_frota_beneficios_consolidado",
+      "source_folder": "Qlikview/Fontes de Dados",
+      "source_file": "PO_DE_PARA_CC_CONSOLIDADO.xlsx",
+      "recursive": false,
+      "sheet": "PO_DE_PARA_CC",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "De Filial",
+          "De_Filial"
+        ],
+        [
+          "Centro de Custo",
+          "Centro_de_Custo"
+        ],
+        [
+          "Item Contábil",
+          "Item_Contabil"
+        ],
+        [
+          "Classe de Valor",
+          "Classe_de_Valor"
+        ],
+        [
+          "Para Filial",
+          "Para_Filial"
+        ],
+        [
+          "Para Filial Nome",
+          "Para_Filial_Nome"
+        ],
+        [
+          "Para Filial RH",
+          "Para_Filial_RH"
+        ],
+        [
+          "Para Empresa",
+          "Para_Empresa"
+        ],
+        [
+          "Gestor",
+          "Gestor"
+        ],
+        [
+          "Centro de Custo Gerencial",
+          "Centro_de_Custo_Gerencial"
+        ],
+        [
+          "PO Frotas e Beneficios",
+          "PO_Frotas_e_Beneficios"
+        ],
+        [
+          "Segmento",
+          "Segmento"
+        ],
+        [
+          "Unidade de Negócios",
+          "Unidade_de_Negocios"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "ods_po_depara_cc_frota_beneficios_consolidado",
+      "skip_if_empty": false
+    }
+  ],
+  "pl_ambipar_carga_excel_protheus_po": [
+    {
+      "task_id": "cd_source_dictionary_currency",
+      "source_folder": "Qlikview/Arquivos",
+      "source_file": "Dictionary.xlsx",
+      "recursive": false,
+      "sheet": 1,
+      "range": null,
+      "header": true,
+      "mappings": [],
+      "extra_columns": [],
+      "target_folder": "dictionary_currencies",
+      "skip_if_empty": false,
+      "share_access": "rw"
+    },
+    {
+      "task_id": "cd_source_dictionary_filiais_protheus",
+      "source_folder": "Qlikview/Fontes de Dados",
+      "source_file": "FILIAIS_PROTHEUS.xls",
+      "recursive": false,
+      "sheet": "FILIAL",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "xx8_grpemp",
+          "xx8_grpemp"
+        ],
+        [
+          "xx8_empr",
+          "xx8_empr"
+        ],
+        [
+          "xx8_codigo",
+          "xx8_codigo"
+        ],
+        [
+          "xx8_descri",
+          "xx8_descri"
+        ],
+        [
+          "xx8_tipo",
+          "xx8_tipo"
+        ],
+        [
+          "xx8_leiaut",
+          "xx8_leiaut"
+        ],
+        [
+          "xx8_size",
+          "xx8_size"
+        ],
+        [
+          "xx8_unid",
+          "xx8_unid"
+        ],
+        [
+          "Segmento",
+          "Segmento"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "filiais_protheus",
+      "skip_if_empty": false,
+      "share_access": "rw"
+    },
+    {
+      "task_id": "cd_source_dictionary_languages",
+      "source_folder": "Qlikview/Arquivos",
+      "source_file": "Dictionary.xlsx",
+      "recursive": false,
+      "sheet": 0,
+      "range": null,
+      "header": true,
+      "mappings": [],
+      "extra_columns": [],
+      "target_folder": "dictionary_languages",
+      "skip_if_empty": false,
+      "share_access": "rw"
+    }
+  ],
+  "pl_ambipar_carga_excel_dictionary_planorcamentario": [
+    {
+      "task_id": "cd_dictionary_planorcamentario",
+      "source_folder": "Qlikview/Arquivos",
+      "source_file": "Dictionary.xlsx",
+      "recursive": false,
+      "sheet": 4,
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "TextId",
+          "TextId"
+        ],
+        [
+          "Português",
+          "Português"
+        ],
+        [
+          "English",
+          "English"
+        ],
+        [
+          "Español",
+          "Español"
+        ],
+        [
+          "NOMEARQUIVO",
+          "NOMEARQUIVO"
+        ],
+        [
+          "PROJECAO",
+          "PROJECAO"
+        ]
+      ],
+      "extra_columns": [
+        [
+          "NOMEARQUIVO",
+          "$$FILEPATH"
+        ],
+        [
+          "PROJECAO",
+          "N"
+        ]
+      ],
+      "target_folder": "dictionary_planorcamentario",
+      "skip_if_empty": false
+    }
+  ],
+  "pl_ambipar_carga_excel_empresa_eventos": [
+    {
+      "task_id": "cd_empresa_eventos",
+      "source_folder": "Qlikview/STAGE_",
+      "source_file": "TABELA_EVENTOS.xlsx",
+      "recursive": false,
+      "sheet": "Empresa",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "Empresa_Codigo",
+          "Empresa_Codigo"
+        ],
+        [
+          "Empresa_Nome",
+          "Empresa_Nome"
+        ],
+        [
+          "Empresa_Sistema",
+          "Empresa_Sistema"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "empresa_eventos",
+      "skip_if_empty": false
+    },
+    {
+      "task_id": "cd_tabela_eventos",
+      "source_folder": "Qlikview/STAGE_",
+      "source_file": "TABELA_EVENTOS.xlsx",
+      "recursive": false,
+      "sheet": "TABELA EVENTOS",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "Nomeclatura Evento ADP",
+          "Nomeclatura_Evento_ADP"
+        ],
+        [
+          "Cod Evento ADP",
+          "Cod_Evento_ADP"
+        ],
+        [
+          "CAMPO RELATORIO",
+          "CAMPO_RELATORIO"
+        ],
+        [
+          "LINHA RELATORIO",
+          "LINHA_RELATORIO"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "tabela_eventos",
+      "skip_if_empty": false
+    },
+    {
+      "task_id": "cd_tabela_eventos_sap",
+      "source_folder": "QlikviewSAP/STAGE_",
+      "source_file": "TABELA_EVENTOS.xls",
+      "recursive": false,
+      "sheet": "TABELA EVENTOS",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "Nomeclatura Evento ADP",
+          "Nomeclatura_Evento_ADP"
+        ],
+        [
+          "Cod Evento ADP",
+          "Cod_Evento_ADP"
+        ],
+        [
+          "CAMPO RELATORIO",
+          "CAMPO_RELATORIO"
+        ],
+        [
+          "LINHA RELATORIO",
+          "LINHA_RELATORIO"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "tabela_eventos_sap",
+      "skip_if_empty": false
+    },
+    {
+      "task_id": "cd_empresa_eventos_sap",
+      "source_folder": "QlikviewSAP/STAGE_",
+      "source_file": "TABELA_EVENTOS.xls",
+      "recursive": false,
+      "sheet": "Empresa",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "Empresa_Codigo",
+          "Empresa_Codigo"
+        ],
+        [
+          "Empresa_Nome",
+          "Empresa_Nome"
+        ],
+        [
+          "Empresa_Sistema",
+          "Empresa_Sistema"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "empresa_eventos_sap",
+      "skip_if_empty": false
+    }
+  ],
+  "pl_ambipar_carga_excel_po_lancamento_gerencial": [
+    {
+      "task_id": "cd_po_lancamento_gerencial",
+      "source_folder": "QlikviewSAP/Arquivos_DRE",
+      "source_file": "PO_LANCAMENTO_GERENCIAL.xlsx",
+      "recursive": false,
+      "sheet": "LANCAMENTOS_SAP",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "%EmpresaID",
+          "%EmpresaID"
+        ],
+        [
+          "TransId",
+          "TransId"
+        ],
+        [
+          "Line_ID",
+          "Line_ID"
+        ],
+        [
+          "Project",
+          "Project"
+        ],
+        [
+          "    Account",
+          "    Account"
+        ],
+        [
+          "SALDO",
+          "SALDO"
+        ],
+        [
+          "LineMemo",
+          "LineMemo"
+        ],
+        [
+          "RefDate",
+          "RefDate"
+        ],
+        [
+          "    ProfitCode",
+          "    ProfitCode"
+        ],
+        [
+          "ContraAct",
+          "ContraAct"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "ods_po_lancamento_gerencial",
+      "skip_if_empty": false
+    }
+  ],
+  "pl_ambipar_carga_excel_desvio_manter_analitico": [
+    {
+      "task_id": "cd_desvio_manter_analitico",
+      "source_folder": "QlikviewSAP/Arquivos_DRE",
+      "source_file": "Desvio_Manter.xlsx",
+      "recursive": false,
+      "sheet": "ANALITICO",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "DRE_Ordenador",
+          "DRE_Ordenador"
+        ],
+        [
+          "DRE_LinhaCodigo",
+          "DRE_LinhaCodigo"
+        ],
+        [
+          "DRE_Descricao",
+          "DRE_Descricao"
+        ],
+        [
+          "Manter",
+          "Manter"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "desvio_manter_analitico",
+      "skip_if_empty": false,
+      "share_access": "rw"
+    },
+    {
+      "task_id": "cd_desvio_manter_sintetico",
+      "source_folder": "QlikviewSAP/Arquivos_DRE",
+      "source_file": "Desvio_Manter.xlsx",
+      "recursive": false,
+      "sheet": "SINTETICO",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "DRESin_Ordenador",
+          "DRESin_Ordenador"
+        ],
+        [
+          "DRESin_LinhaCodigo",
+          "DRESin_LinhaCodigo"
+        ],
+        [
+          "DRESin_Descricao",
+          "DRESin_Descricao"
+        ],
+        [
+          "Manter",
+          "Manter"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "desvio_manter_sintetico",
+      "skip_if_empty": false,
+      "share_access": "rw"
+    }
+  ],
+  "pl_ambipar_carga_excel_plan_versoes_3ga": [
+    {
+      "task_id": "cd_plan_versoes_3ga",
+      "source_folder": "QlikviewSAP/Arquivos_DRE/PLANEJAMENTO_VERSOES/Power BI",
+      "source_file": "PO_*.xlsx",
+      "recursive": true,
+      "sheet": "BD PO",
+      "range": "A1:P70000",
+      "header": true,
+      "mappings": [
+        [
+          "EMPRESA",
+          "EMPRESA"
+        ],
+        [
+          "FILIAL",
+          "FILIAL"
+        ],
+        [
+          "ANO",
+          "ANO"
+        ],
+        [
+          "MES",
+          "MES"
+        ],
+        [
+          "VERSAO",
+          "VERSAO"
+        ],
+        [
+          "CTA DEBITO",
+          "CTA_DEBITO"
+        ],
+        [
+          "CTA CREDITO",
+          "CTA_CREDITO"
+        ],
+        [
+          "DESCRICAO",
+          "DESCRICAO"
+        ],
+        [
+          "VALOR",
+          "VALOR"
+        ],
+        [
+          "CC DEBITO",
+          "CC_DEBITO"
+        ],
+        [
+          "CC CREDITO",
+          "CC_CREDITO"
+        ],
+        [
+          "IC DEBITO",
+          "IC_DEBITO"
+        ],
+        [
+          "IC CREDITO",
+          "IC_CREDITO"
+        ],
+        [
+          "CV DEBITO",
+          "CV_DEBITO"
+        ],
+        [
+          "CV CREDITO",
+          "CV_CREDITO"
+        ],
+        [
+          "PROJEÇÃO",
+          "PROJECAO"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "plan_versoes_3ga",
+      "skip_if_empty": false
+    }
+  ],
+  "pl_ambipar_carga_excel_realiza_moeda_5": [
+    {
+      "task_id": "cd_realiza_moeda_5",
+      "source_folder": "Qlikview/Fontes de Dados/REALIZADO_MOEDA_5",
+      "source_file": "REALIZADO_MOEDA_5_*_20*.xlsx",
+      "recursive": true,
+      "sheet": 0,
+      "range": "A1:K1048576",
+      "header": true,
+      "mappings": [
+        [
+          "EMPRESA",
+          "EMPRESA"
+        ],
+        [
+          "FILIAL",
+          "FILIAL"
+        ],
+        [
+          "ANO",
+          "ANO"
+        ],
+        [
+          "MES",
+          "MES"
+        ],
+        [
+          "DIA",
+          "DIA"
+        ],
+        [
+          "CTA_CONTABIL",
+          "CTA_CONTABIL"
+        ],
+        [
+          "DESCRICAO",
+          "DESCRICAO"
+        ],
+        [
+          "VALOR",
+          "VALOR"
+        ],
+        [
+          "CC CONTABIL",
+          "CC_CONTABIL"
+        ],
+        [
+          "IC CONTABIL",
+          "IC_CONTABIL"
+        ],
+        [
+          "CV CONTABIL",
+          "CV_CONTABIL"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "ods_realizado_moeda_5",
+      "skip_if_empty": false
+    }
+  ],
+  "pl_ambipar_carga_excel_status_fechamento": [
+    {
+      "task_id": "cd_status_fechamento",
+      "source_folder": "Qlikview/Fontes de Dados",
+      "source_file": "STATUS FECHAMENTO GERENCIAL.xlsx",
+      "recursive": false,
+      "sheet": "Status PBI",
+      "range": null,
+      "header": true,
+      "mappings": [
+        [
+          "EMPRESA",
+          "EMPRESA"
+        ],
+        [
+          "MÊS",
+          "MES"
+        ],
+        [
+          "ANO",
+          "ANO"
+        ],
+        [
+          "STATUS",
+          "STATUS"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "status_fechamento",
+      "skip_if_empty": false
+    }
+  ],
+  "pl_ambipar_carga_excel_fopag_copy1": [
+    {
+  "task_id": "cd_source_fopag",
+  "preserve_hierarchy": true,
+  "source_folder": "Qlikview/STAGE_",
+  "source_file": "FOPAG_*",
+  "source_files": [
+    "FOPAG_01_2024.xlsx",
+    "FOPAG_02_2024.xlsx",
+    "FOPAG_03_2024.xlsx",
+    "FOPAG_04_2024.xlsx",
+    "FOPAG_05_2024.xlsx",
+    "FOPAG_06_2024.xlsx",
+    "FOPAG_07_2024.xlsx",
+    "FOPAG_08_2024.xlsx",
+    "FOPAG_09_2024.xlsx",
+    "FOPAG_10_2024.xlsx"
+  ],
+  "skip_layout_mismatch": true,
+      "recursive": true,
+      "sheet": 0,
+      "range": "A2:N5000000",
+      "header": false,
+      "mappings": [
+        [
+          1,
+          "Empresa"
+        ],
+        [
+          2,
+          "Matricula"
+        ],
+        [
+          3,
+          "Nome"
+        ],
+        [
+          4,
+          "Data_Admissao"
+        ],
+        [
+          5,
+          "Data_Rescisao"
+        ],
+        [
+          6,
+          "Estabelecimento"
+        ],
+        [
+          7,
+          "CR"
+        ],
+        [
+          8,
+          "Codigo"
+        ],
+        [
+          9,
+          "Descricao"
+        ],
+        [
+          10,
+          "Clas"
+        ],
+        [
+          11,
+          "Processo"
+        ],
+        [
+          12,
+          "Hora"
+        ],
+        [
+          13,
+          "Valor"
+        ],
+        [
+          14,
+          "Periodo"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "fopag",
+      "skip_if_empty": true
+    }
+  ],
+  "pl_ambipar_carga_excel_fopag_SAP_copy1": [
+    {
+      "task_id": "cd_source_fopag_sap",
+      "source_folder": "QlikviewSAP/STAGE_",
+      "source_file": "FOPAG_*",
+      "recursive": true,
+      "preserve_hierarchy": true,
+      "sheet": 0,
+      "range": "A2:M500000",
+      "header": false,
+      "mappings": [
+        [
+          1,
+          "Empresa"
+        ],
+        [
+          2,
+          "Matricula"
+        ],
+        [
+          3,
+          "Nome"
+        ],
+        [
+          4,
+          "Data_Admissao"
+        ],
+        [
+          5,
+          "Data_Rescisao"
+        ],
+        [
+          6,
+          "Estabelecimento"
+        ],
+        [
+          7,
+          "CR"
+        ],
+        [
+          8,
+          "Codigo"
+        ],
+        [
+          9,
+          "Descricao"
+        ],
+        [
+          10,
+          "Clas"
+        ],
+        [
+          11,
+          "Processo"
+        ],
+        [
+          12,
+          "Hora"
+        ],
+        [
+          13,
+          "Valor"
+        ]
+      ],
+      "extra_columns": [],
+      "target_folder": "fopag_sap",
+      "skip_if_empty": false,
+      "skip_layout_mismatch": false,
+      "share_access": "rw"
+    }
+  ]
+}
